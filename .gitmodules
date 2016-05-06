@@ -1,0 +1,3 @@
+[submodule "public/dayside"]
+	path = public/dayside
+	url = git@github.com:boomyjee/dayside.git
