@@ -19,8 +19,7 @@ class Auth extends Generic
     public function indexAction()
     {
         if (App::isAdmin()) {
-            header('Location: /');
-            die;
+            $this->redirectToHome();
         }
 
         $post = $_POST;
@@ -28,6 +27,7 @@ class Auth extends Generic
         if (isset($post['login']) && isset($post['password'])) {
             if ($this->isValidUser($post['login'], $post['password'])) {
                 $_SESSION['admin'] = true;
+                $this->redirectToHome();
             } else {
                 $this->setAlert('Wrong login or password', 'danger');
             }
